@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deli Sandwiches Menu</title>
+    <style>
+        :root {
+            --menu-grid: minmax(100px, 1fr) 60px 60px;
+            --menu-gap: 15px;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+            background: #fff8f0;
+            color: #2c1b10;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+            /* Ensure content fits on screen without scrolling */
+            max-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            padding: 10px;
+            background: #2c1b10;
+            color: #ffcc99;
+            font-size: 2.5rem;
+            text-shadow: 0 0 5px #ff4d00, 0 0 10px #ff4d00, 0 0 20px #ff4d00;
+            letter-spacing: 3px;
+            flex-shrink: 0;
+        }
+
+        .header span {
+            font-size: 1.5rem;
+            color: #ffeecc;
+            text-shadow: none;
+        }
+
+        .menu-board {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            flex-grow: 1;
+            padding: 15px;
+            box-sizing: border-box;
+            overflow: hidden; /* Prevent scrolling */
+            background: repeating-linear-gradient(
+                    45deg,
+                    #fff8f0,
+                    #fff8f0 10px,
+                    #ffeecc 10px,
+                    #ffeecc 20px
+            );
+        }
+
+        .menu-column {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            background: white;
+            border: 6px double #a63e00;
+            border-radius: 12px;
+            margin: 5px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+            min-width: 0; /* Prevent overflow */
+        }
+
+        .section {
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            color: #a63e00;
+            border-bottom: 3px dashed #a63e00;
+            padding-bottom: 3px;
+            position: relative;
+            font-weight: bold;
+        }
+
+        .menu-item {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .menu-item-row {
+            display: flex;
+            width: 100%;
+            position: relative;
+        }
+
+        .menu-item-name {
+            white-space: nowrap;
+            padding-right: 10px;
+            z-index: 1;
+            background: white;
+        }
+
+        .menu-dots {
+            flex-grow: 1;
+            position: relative;
+        }
+
+        /* Optional dots styling */
+        .menu-dots:after {
+            content: "";
+            position: absolute;
+            bottom: 0.5em;
+            left: 0;
+            right: 0;
+            border-bottom: 2px dotted #ccc;
+        }
+
+        .price-container {
+            display: flex;
+            gap: 15px;
+            white-space: nowrap;
+            padding-left: 10px;
+            z-index: 1;
+            background: white;
+            /*min-width: 135px; !* Ensure consistent width for price container *!*/
+            /*justify-content: flex-end;*/
+        }
+
+        .price {
+            width: 60px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .menu-item-description {
+            font-size: 0.9rem;
+            color: #444;
+            margin: 0 0 5px 0;
+            padding-left: 10px;
+            line-height: 1.1;
+        }
+
+        .price-label-container {
+            display: flex;
+            gap: 15px;
+            white-space: nowrap;
+            padding-left: 10px;
+            z-index: 1;
+            background: white;
+            min-width: 135px; /* Ensure consistent width for price container */
+            justify-content: flex-end;
+            flex-grow: 1;
+            position: relative;
+        }
+
+        .price-label {
+            width: 60px;
+            text-align: center;
+            color: #a63e00;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .menu-item-double {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            gap: 20px; /* Add spacing between menu items */
+        }
+
+        .price {
+            color: #ff4d00;
+            font-weight: bold;
+            text-shadow: 0 0 6px #ffcc99, 0 0 12px #ff4d00;
+        }
+
+        /* Description styling moved to menu-item-description */
+
+        .info-box {
+            background: #fff0e0;
+            padding: 8px;
+            border: 2px dashed #a63e00;
+            margin: 5px 0;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            line-height: 1.2;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="header">
+    🥪 GOOD MORNING DELI 🥪<br>
+    <span>Fresh Sandwiches Made to Order</span>
+</div>
+
+<div class="menu-board">
+    <div class="menu-column">
+        <div class="section">
+            <div class="section-title">🍞 BREAD OPTIONS</div>
+            <div class="info-box">
+                White • Wheat • Rye • Sourdough • Kaiser • Wrap • Bagel (+$0.50)
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name"><strong>Sub Roll</strong></span>
+                    <span class="menu-dots"></span>
+                </div>
+                <div class="menu-item-description">8-inch Italian bread</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🥓 CLASSIC SANDWICHES</div>
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <div class="price-label-container">
+                        <div class="price-label">
+                            Roll
+                        </div>
+                        <div class="price-label">
+                            Sub
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">BLT</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$6.95</span>
+                        <span class="price">$8.95</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">Bacon, Lettuce, Tomato, Mayo</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Turkey & Cheese</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$7.95</span>
+                        <span class="price">$9.95</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">Turkey, Cheese, Lettuce, Tomato</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Ham & Cheese</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$7.95</span>
+                        <span class="price">$9.95</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">Ham, Cheese, Lettuce, Tomato</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Roast Beef</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$8.95</span>
+                        <span class="price">$10.95</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">Roast Beef, Cheese, Lettuce, Tomato</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Tuna Salad</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$7.50</span>
+                        <span class="price">$9.50</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">Homemade Tuna Salad, Lettuce, Tomato</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Chicken Salad</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$7.50</span>
+                        <span class="price">$9.50</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">Homemade Chicken Salad, Lettuce, Tomato</div>
+            </div>
+        </div>
+
+
+        <div class="section">
+            <div class="section-title">🧀 CHEESE OPTIONS</div>
+            <div class="info-box">
+                American • Swiss • Provolone • Cheddar • Pepper Jack • Mozzarella
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-column">
+        <div class="section">
+            <div class="section-title">🔥 SPECIALTY SANDWICHES</div>
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <div class="price-label-container">
+                        <div class="price-label">
+                            Roll
+                        </div>
+                        <div class="price-label">
+                            Sub
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">The Italian</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$9.95</span>
+                        <span class="price">$11.95</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">Salami, Pepperoni, Ham, Provolone, Lettuce, Tomato</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Reuben</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$9.95</span>
+                        <span class="price">$11.95</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">Corned Beef, Swiss, Sauerkraut, Russian Dressing</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Club</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$10.95</span>
+                        <span class="price">$12.95</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">Triple-Decker with Turkey, Bacon, Lettuce, Tomato</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Veggie Delight</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$7.50</span>
+                        <span class="price">$9.50</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">Cucumber, Avocado, Lettuce, Tomato, Hummus</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Grilled Cheese</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$5.95</span>
+                        <span class="price">$7.95</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">Choice of Cheese on Buttered Bread</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Add Bacon or Ham</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container" style="justify-content: center;">
+                        <span class="price">+$2.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🥗 EXTRAS & COMBOS</div>
+            <div class="menu-item-double">
+                <div class="menu-item" style="flex: 1;">
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Avocado</span>
+                        <span class="menu-dots"></span>
+                        <div class="price-container">
+                            <span class="price">+$1.50</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item" style="flex: 1;">
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Extra Meat</span>
+                        <span class="menu-dots"></span>
+                        <div class="price-container">
+                            <span class="price">+$2.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item-double">
+                <div class="menu-item" style="flex: 1;">
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Extra Cheese</span>
+                        <span class="menu-dots"></span>
+                        <div class="price-container">
+                            <span class="price">+$1.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item" style="flex: 1;">
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Bacon</span>
+                        <span class="menu-dots"></span>
+                        <div class="price-container">
+                            <span class="price">+$2.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Chips & Drink</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">+$3.50</span>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Salad & Drink</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">+$4.50</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">All sandwiches include a pickle spear</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
