@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breakfast Menu</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Courier New', Courier, monospace;
+      background: #fff8f0;
+      color: #2c1b10;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+      /* Ensure content fits on screen without scrolling */
+      max-height: 100vh;
+    }
+
+    .header {
+      text-align: center;
+      padding: 10px;
+      background: #2c1b10;
+      color: #ffcc99;
+      font-size: 2.5rem;
+      text-shadow: 0 0 5px #ff4d00, 0 0 10px #ff4d00, 0 0 20px #ff4d00;
+      letter-spacing: 3px;
+      flex-shrink: 0;
+    }
+
+    .header span {
+      font-size: 1.5rem;
+      color: #ffeecc;
+      text-shadow: none;
+    }
+
+    .menu-board {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      flex-grow: 1;
+      padding: 15px;
+      box-sizing: border-box;
+      overflow: hidden; /* Prevent scrolling */
+      background: repeating-linear-gradient(
+              45deg,
+              #fff8f0,
+              #fff8f0 10px,
+              #ffeecc 10px,
+              #ffeecc 20px
+      );
+    }
+
+    .menu-column {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      background: white;
+      border: 6px double #a63e00;
+      border-radius: 12px;
+      margin: 5px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.15);
+    }
+
+    .section {
+      margin-bottom: 15px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+      color: #a63e00;
+      border-bottom: 3px dashed #a63e00;
+      padding-bottom: 3px;
+      position: relative;
+      font-weight: bold;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+      font-size: 1.4rem;
+      transition: transform 0.15s ease-in-out;
+      position: relative;
+      overflow: hidden;
+      line-height: 1.2;
+    }
+
+    .menu-item > span:first-child {
+      position: relative;
+      padding-right: 15px;
+      background: white;
+      z-index: 1;
+    }
+
+    .menu-item > .price {
+      position: relative;
+      padding-left: 15px;
+      background: white;
+      z-index: 1;
+    }
+
+    .menu-item::after {
+      content: "";
+      position: absolute;
+      bottom: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      border-bottom: 2px dotted #ccc;
+      z-index: 0;
+    }
+
+    .menu-item-double {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      font-size: 1.5rem;
+      transition: transform 0.15s ease-in-out;
+    }
+
+    .menu-item-double:hover {
+      transform: scale(1.02);
+      animation: pulse 0.4s ease-in-out;
+    }
+
+    .product-pair {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .product {
+      display: flex;
+      position: relative;
+      width: 48%;
+      overflow: hidden;
+    }
+
+    .product > span:first-child {
+      position: relative;
+      padding-right: 15px;
+      background: white;
+      z-index: 1;
+    }
+
+    .product > .price {
+      position: relative;
+      padding-left: 15px;
+      background: white;
+      z-index: 1;
+      margin-left: auto;
+    }
+
+    .product::after {
+      content: "";
+      position: absolute;
+      bottom: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      border-bottom: 2px dotted #ccc;
+      z-index: 0;
+    }
+
+    .menu-item:hover {
+      transform: scale(1.02);
+      animation: pulse 0.4s ease-in-out;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1.02); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1.02); }
+    }
+
+    .price {
+      color: #ff4d00;
+      font-weight: bold;
+      text-shadow: 0 0 6px #ffcc99, 0 0 12px #ff4d00;
+    }
+
+    .description {
+      font-size: 0.9rem;
+      color: #444;
+      margin: 0 0 5px 0;
+      padding-left: 10px;
+      clear: both;
+      line-height: 1.1;
+    }
+
+    .cream-cheese-box {
+      background: #fff0e0;
+      padding: 8px;
+      border: 2px dashed #a63e00;
+      margin: 5px 0;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      line-height: 1.2;
+    }
+  </style>
+</head>
+<body>
+<div class="menu-board">
+  <div class="menu-column">
+    <div class="section-title">🥯 BAGELS</div>
+    <div class="section">
+      <div class="menu-item-double">
+        <div class="product-pair">
+          <div class="product"><span>Plain Bagel</span><span class="price">$1.00</span></div>
+          <div class="product"><span>Bakers Dozen</span><span class="price">$12.00</span></div>
+        </div>
+      </div>
+      <div class="menu-item"><span>Plain Bagel Stick</span><span class="price">$1.25</span></div>
+      <div class="menu-item"><span>w/ Butter</span><span class="price">$2.69</span></div>
+      <div class="menu-item"><span>w/ Cream Cheese</span><span class="price">$2.99</span></div>
+      <div class="menu-item"><span>w/ Homemade Cream Cheese</span><span class="price">$3.99</span></div>
+      <div class="menu-item"><span>w/ Peanut Butter</span><span class="price">$2.75</span></div>
+      <div class="cream-cheese-box">
+        Cream Cheese Flavors: Olive • Scallion • Veggie
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">🥪 EGG SANDWICHES</div>
+      <div class="menu-item"><span>One Egg</span><span class="price">$3.50</span></div>
+      <div class="menu-item"><span>Egg, Meat</span><span class="price">$4.79</span></div>
+      <div class="menu-item"><span>Egg, Meat & Cheese</span><span class="price">$5.69</span></div>
+    </div>
+    <div class="section">
+      <div class="section-title">🧀 EXTRAS</div>
+      <div class="menu-item"><span>🥚 Extra Egg</span><span class="price">$0.75</span></div>
+      <div class="menu-item"><span>🥓 Extra Meat</span><span class="price">$2.00</span></div>
+      <div class="description">Bacon • Ham • Sausage • Taylor Ham</div>
+      <div class="menu-item"><span>🧀 Extra Cheese</span><span class="price">$0.75</span></div>
+      <div class="description">American • Swiss • Cheddar • Provolone • Pepper Jack</div>
+      <div class="menu-item"><span>On A Long Roll</span><span class="price">+$2.50</span></div>
+    </div>
+    <div class="section">
+      <div class="section-title">➕ ADD-ONS</div>
+      <div class="menu-item"><span>🥔 Add a Hashbrown</span><span class="price">$1.75</span></div>
+    </div>
+  </div>
+
+  <div class="menu-column">
+    <div class="section">
+      <div class="section-title">🍳 PLATTERS & OMELETS</div>
+      <div class="menu-item"><span>2 Eggs any style + Choice of Meat</span><span class="price">$8.99</span></div>
+      <div class="description">with toast & homefries</div>
+      <div class="menu-item"><span>Cheese Omelette</span><span class="price">$8.99</span></div>
+      <div class="description">with toast & homefries</div>
+      <div class="menu-item"><span>Western Omelet</span><span class="price">$8.99</span></div>
+      <div class="description">Eggs, Ham, Peppers, Onions & Cheese</div>
+      <div class="menu-item"><span>French Toast + Choice of Meat</span><span class="price">$8.99</span></div>
+    </div>
+    <div class="section">
+      <div class="section-title">🌯 BREAKFAST WRAPS</div>
+      <div class="menu-item"><span>#1 Breakfast Burrito</span><span class="price">$6.99</span></div>
+      <div class="description">Eggs, Salsa, Pepper Jack Cheese</div>
+      <div class="menu-item"><span>#2 Western Wrap</span><span class="price">$6.99</span></div>
+      <div class="description">Eggs, Ham, Peppers, Onions, Cheese</div>
+      <div class="menu-item"><span>#3 Veggie Wrap</span><span class="price">$6.99</span></div>
+      <div class="description">Eggs, Peppers, Onions, Cheese</div>
+      <div class="menu-item"><span>Steak, Egg & Cheese</span><span class="price">$6.99</span></div>
+    </div>
+    <div class="section">
+      <div class="section-title">☕ COFFEE & TEA</div>
+      <div class="menu-item"><span>Small (12oz)</span><span class="price">$1.75</span></div>
+      <div class="menu-item"><span>Medium (16oz)</span><span class="price">$2.25</span></div>
+      <div class="menu-item"><span>Large (20oz)</span><span class="price">$2.50</span></div>
+      <div class="description">Self-serve coffee and tea available in various flavors</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
