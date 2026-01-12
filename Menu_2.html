@@ -220,6 +220,30 @@
             width: 100%;
         }
 
+        /* Sub-menu item styling - for options like "with cheese +$0.50" */
+        .sub-menu-item {
+            margin-left: 20px;
+            margin-top: 4px;
+            margin-bottom: 4px;
+        }
+
+        .sub-menu-item .menu-item-row {
+            opacity: 0.9;
+        }
+
+        .sub-menu-item .menu-item-name {
+            font-size: 1.15rem;
+            font-weight: 500;
+            font-style: italic;
+            color: #555;
+        }
+
+        .sub-menu-item .price {
+            font-size: 1.15rem;
+            width: 70px; /* Match main item price width */
+            text-align: center; /* Center align to handle the + symbol */
+        }
+
         /*!* Mobile-only media query - disabled for TC display *!*/
         /*@media (max-width: 767px) {*/
         /*    .menu-column {*/
@@ -470,6 +494,20 @@
                 </div>
                 <div class="menu-item" style="flex: 1;">
                     <div class="menu-item-row">
+                        <span class="menu-item-name">Fresh Mozz</span>
+                        <span class="menu-dots"></span>
+                        <div class="price-container">
+                            <span class="price">+$1.50</span>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="menu-item-double">
+
+                <div class="menu-item" style="flex: 1;">
+                    <div class="menu-item-row">
                         <span class="menu-item-name">Bacon</span>
                         <span class="menu-dots"></span>
                         <div class="price-container">
@@ -477,8 +515,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="menu-item-double">
                 <div class="menu-item" style="flex: 1;">
                     <div class="menu-item-row">
                         <span class="menu-item-name">Extra Deli Meat</span>
@@ -488,37 +524,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="menu-item" style="flex: 1;">
-                    <div class="menu-item-row">
-                        <span class="menu-item-name">Extra Meat</span>
-                        <span class="menu-dots"></span>
-                        <div class="price-container">
-                            <span class="price">+$1.50</span>
-                        </div>
-                    </div>
-                </div>
+
             </div>
             <div class="menu-item-double">
-                <div class="menu-item" style="flex: 1;">
-                    <div class="menu-item-row">
-                        <span class="menu-item-name">Fresh Mozz</span>
-                        <span class="menu-dots"></span>
-                        <div class="price-container">
-                            <span class="price">+$1.50</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-item" style="flex: 1;">
-                    <div class="menu-item-row">
-                        <span class="menu-item-name">Hashbrown Patty</span>
-                        <span class="menu-dots"></span>
-                        <div class="price-container">
-                            <span class="price">+$1.75</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="menu-item-double">
+
                 <div class="menu-item" style="flex: 1;">
                     <div class="menu-item-row">
                         <span class="menu-item-name">Hot Peppers</span>
@@ -528,26 +537,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="menu-item" style="flex: 1;">
-                    <div class="menu-item-row">
-                        <span class="menu-item-name">Mushrooms</span>
-                        <span class="menu-dots"></span>
-                        <div class="price-container">
-                            <span class="price">+$0.85</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="menu-item-double">
-                <div class="menu-item" style="flex: 1;">
-                    <div class="menu-item-row">
-                        <span class="menu-item-name">Onion</span>
-                        <span class="menu-dots"></span>
-                        <div class="price-container">
-                            <span class="price">+$0.30</span>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="menu-item" style="flex: 1;">
                     <div class="menu-item-row">
                         <span class="menu-item-name">Pesto</span>
@@ -557,7 +547,31 @@
                         </div>
                     </div>
                 </div>
+
             </div>
+            <div class="menu-item-double">
+
+                <div class="menu-item" style="flex: 1;">
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Mushrooms</span>
+                        <span class="menu-dots"></span>
+                        <div class="price-container">
+                            <span class="price">+$0.85</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" style="flex: 1;">
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Onion</span>
+                        <span class="menu-dots"></span>
+                        <div class="price-container">
+                            <span class="price">+$0.30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="menu-item-double">
                 <div class="menu-item" style="flex: 1;">
                     <div class="menu-item-row">
@@ -598,6 +612,7 @@
                     </div>
                 </div>
             </div>
+
 
 
             <!--            <div class="add-ons-menu">
@@ -813,179 +828,6 @@
     <div class="menu-column">
 
         <div class="section">
-            <div class="section-title">🔥 HOT SANDWICHES</div>
-            <div class="menu-item">
-                <div class="menu-item-row">
-                    <div class="price-label-container">
-                        <div class="price-label">Roll</div>
-                        <div class="price-label">Sub</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="menu-item">
-                <div class="menu-item-row">
-                    <span class="menu-item-name">Breaded Chicken Cutlet</span>
-                    <span class="menu-dots"></span>
-                    <div class="price-container">
-                        <span class="price">$9.95</span>
-                        <span class="price">$11.95</span>
-                    </div>
-                </div>
-                <div class="menu-item-description">Breaded Chicken w/ lettuce, tomato, mayo</div>
-            </div>
-
-            <div class="menu-item">
-                <div class="menu-item-row">
-                    <span class="menu-item-name">Grilled Chicken Cutlet</span>
-                    <span class="menu-dots"></span>
-                    <div class="price-container">
-                        <span class="price">$9.95</span>
-                        <span class="price">$11.95</span>
-                    </div>
-                </div>
-                <div class="menu-item-description">Grilled Chicken w/ lettuce, tomato, mayo</div>
-            </div>
-
-            <div class="menu-item">
-                <div class="menu-item-row">
-                    <span class="menu-item-name">Chicken Parmigiana</span>
-                    <span class="menu-dots"></span>
-                    <div class="price-container">
-                        <span class="price">$10.95</span>
-                        <span class="price">$12.95</span>
-                    </div>
-                </div>
-                <div class="menu-item-description">Breaded Chicken w/ Marinara & Mozzarella</div>
-            </div>
-
-            <div class="menu-item">
-                <div class="menu-item-row">
-                    <span class="menu-item-name">Meatball Parmigiana</span>
-                    <span class="menu-dots"></span>
-                    <div class="price-container">
-                        <span class="price">$7.95</span>
-                    </div>
-                </div>
-                <div class="menu-item-description">Meatballs w/ Marinara & Mozzarella</div>
-            </div>
-
-            <div class="menu-item">
-                <div class="menu-item-row">
-                    <span class="menu-item-name">Sausage Peppers & Onions</span>
-                    <span class="menu-dots"></span>
-                    <div class="price-container">
-                        <span class="price">$5.95</span>
-
-                    </div>
-                </div>
-                <div class="menu-item-description">Sausage w/ Peppers & Onions on your choice of bread</div>
-            </div>
-
-            <div class="menu-item">
-                <div class="menu-item-row">
-                    <span class="menu-item-name">1/2 Lb Angus Burger</span>
-                    <span class="menu-dots"></span>
-                    <div class="price-container">
-                        <span class="price">$7.49</span>
-                    </div>
-                </div>
-                <div class="menu-item-description">
-                    <div class="menu-item">
-                        <div class="menu-item-row">
-                            <span class="menu-item-name">with Cheese</span>
-                            <span class="menu-dots"></span>
-                            <div class="price-container">
-                                <span class="price">$7.99</span>
-                            </div>
-                        </div>
-                        <div class="menu-item-description"></div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="menu-item">
-                <div class="menu-item-row">
-                    <span class="menu-item-name">1/2 Lb Philly Cheese Steak</span>
-                    <span class="menu-dots"></span>
-                    <div class="price-container">
-                        <span class="price">$9.99</span>
-                    </div>
-                </div>
-                <div class="menu-item-description">with Peppers & Onions</div>
-            </div>
-
-            <div class="menu-item">
-                <div class="menu-item-row">
-                    <span class="menu-item-name">Black Bean Burger</span>
-                    <span class="menu-dots"></span>
-                    <div class="price-container">
-                        <span class="price">$7.49</span>
-                    </div>
-                </div>
-                <div class="menu-item-description">with Peppers & Onions</div>
-            </div>
-
-            <div class="menu-item">
-                <div class="menu-item-row">
-                    <span class="menu-item-name">3 Sliders With Fries</span>
-                    <span class="menu-dots"></span>
-                    <div class="price-container">
-                        <span class="price">$7.49</span>
-                    </div>
-                </div>
-                <div class="menu-item-description">Chicken Or Beef</div>
-            </div>
-
-            <div class="menu-item">
-                <div class="menu-item-row">
-                    <span class="menu-item-name">3 Meatball Sliders</span>
-                    <span class="menu-dots"></span>
-                    <div class="price-container">
-                        <span class="price">$7.49</span>
-                    </div>
-                </div>
-                <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-                <div class="menu-item-row">
-                    <span class="menu-item-name">Hot Dog</span>
-                    <span class="menu-dots"></span>
-                    <div class="price-container">
-                        <span class="price">$3.50</span>
-                    </div>
-                </div>
-                <div class="menu-item-description">
-                    <div class="menu-item">
-                        <div class="menu-item-row">
-                            <span class="menu-item-name">With Chili</span>
-                            <span class="menu-dots"></span>
-                            <div class="price-container">
-                                <span class="price">$4.50</span>
-                            </div>
-                        </div>
-                        <div class="menu-item-description"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="menu-item">
-                <div class="menu-item-row">
-                    <span class="menu-item-name">Fish On A Roll</span>
-                    <span class="menu-dots"></span>
-                    <div class="price-container">
-                        <span class="price">$7.49</span>
-                    </div>
-                </div>
-                <div class="menu-item-description"></div>
-            </div>
-
-
-        </div>
-
-        <div class="section">
             <div class="section-title">GRILLED CHEESE</div>
 
             <div class="menu-item">
@@ -993,10 +835,18 @@
                     <span class="menu-item-name">The Classic</span>
                     <span class="menu-dots"></span>
                     <div class="price-container">
-                        <span class="price">$9.95</span>
+                        <span class="price">$5.00</span>
                     </div>
                 </div>
-                <div class="menu-item-description">Your choice of bread & cheese</div>
+                <div class="sub-menu-item">
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">with Bacon & Tomato</span>
+                        <span class="menu-dots"></span>
+                        <div class="price-container">
+                            <span class="price">+$2.25</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="menu-item">
@@ -1015,22 +865,12 @@
                     <span class="menu-item-name">Reuben Grilled Cheese</span>
                     <span class="menu-dots"></span>
                     <div class="price-container">
-                        <span class="price">$11.99</span>
+                        <span class="price">$9.99</span>
                     </div>
                 </div>
                 <div class="menu-item-description">Pastrami, Swiss, Sauerkraut, & Thousand Island</div>
             </div>
 
-            <div class="menu-item">
-                <div class="menu-item-row">
-                    <span class="menu-item-name">Inside Out Jalapeno</span>
-                    <span class="menu-dots"></span>
-                    <div class="price-container">
-                        <span class="price">$8.99</span>
-                    </div>
-                </div>
-                <div class="menu-item-description">Cheddar & Jalapeno</div>
-            </div>
         </div>
 
         <div class="section">

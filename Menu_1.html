@@ -220,6 +220,30 @@
             width: 100%;
         }
 
+        /* Sub-menu item styling - for options like "with cheese +$0.50" */
+        .sub-menu-item {
+            margin-left: 20px;
+            margin-top: 4px;
+            margin-bottom: 4px;
+        }
+
+        .sub-menu-item .menu-item-row {
+            opacity: 0.9;
+        }
+
+        .sub-menu-item .menu-item-name {
+            font-size: 1.15rem;
+            font-weight: 500;
+            font-style: italic;
+            color: #555;
+        }
+
+        .sub-menu-item .price {
+            font-size: 1.15rem;
+            width: 70px; /* Match main item price width */
+            text-align: center; /* Center align to handle the + symbol */
+        }
+
         /*!* Mobile-only media query - disabled for TC display *!*/
         /*@media (max-width: 767px) {*/
         /*    .menu-column {*/
@@ -317,6 +341,15 @@
                     <span class="menu-dots"></span>
                     <div class="price-container">
                         <span class="price">$9.99</span>
+                    </div>
+                </div>
+                <div class="sub-menu-item">
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">with Extra Cheese</span>
+                        <span class="menu-dots"></span>
+                        <div class="price-container">
+                            <span class="price">+$1.50</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -440,6 +473,174 @@
         </div>
     </div>
 
+
+    <div class="menu-column">
+
+        <div class="section">
+            <div class="section-title">🔥 HOT SANDWICHES</div>
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <div class="price-label-container">
+                        <div class="price-label">Roll</div>
+                        <div class="price-label">Sub</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Breaded Chicken Cutlet</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$9.95</span>
+                        <span class="price">$11.95</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">Breaded Chicken w/ lettuce, tomato, mayo</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Grilled Chicken Cutlet</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$9.95</span>
+                        <span class="price">$11.95</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">Grilled Chicken w/ lettuce, tomato, mayo</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Chicken Parmigiana</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$10.95</span>
+                        <span class="price">$12.95</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">Breaded Chicken w/ Marinara & Mozzarella</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Meatball Parmigiana</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$7.95</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">Meatballs w/ Marinara & Mozzarella</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Sausage Peppers & Onions</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$5.95</span>
+
+                    </div>
+                </div>
+                <div class="menu-item-description">Sausage w/ Peppers & Onions on your choice of bread</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">1/2 Lb Angus Burger</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$7.49</span>
+                    </div>
+                </div>
+                <div class="sub-menu-item">
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">with Cheese</span>
+                        <span class="menu-dots"></span>
+                        <div class="price-container">
+                            <span class="price">+$0.50</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">1/2 Lb Philly Cheese Steak</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$9.99</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">with Peppers & Onions</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Black Bean Burger</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$7.49</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">with Peppers & Onions</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">3 Sliders With Fries</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$7.49</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">Chicken Or Beef</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">3 Meatball Sliders</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$7.49</span>
+                    </div>
+                </div>
+                <div class="menu-item-description"></div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Hot Dog</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$3.50</span>
+                    </div>
+                </div>
+                <div class="sub-menu-item">
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">with Chili</span>
+                        <span class="menu-dots"></span>
+                        <div class="price-container">
+                            <span class="price">+$1.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Fish On A Roll</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$7.49</span>
+                    </div>
+                </div>
+                <div class="menu-item-description"></div>
+            </div>
+
+        </div>
+    </div>
 
     <div class="menu-column">
 
