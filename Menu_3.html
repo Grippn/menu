@@ -1,536 +1,546 @@
 <!DOCTYPE html>
 <html lang="en" style="overflow: hidden;">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Menu 3 - Breakfast</title>
-  <style>
-    /* Base styles with simplified variables - matching Menu 1 & 2 */
-    :root {
-      --primary-color: #2c1b10;
-      --accent-color: #a63e00;
-      --highlight-color: #ff4d00;
-      --bg-color: #fff8f0;
-      --light-accent: #ffcc99;
-      --card-bg: white;
-      --border-style: 6px double var(--accent-color);
-      --standard-spacing: 10px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Menu 3 - Breakfast</title>
+    <style>
+        /* Base styles with simplified variables - matching Menu 1 & 2 */
+        :root {
+            --primary-color: #2c1b10;
+            --accent-color: #a63e00;
+            --highlight-color: #ff4d00;
+            --bg-color: #fff8f0;
+            --light-accent: #ffcc99;
+            --card-bg: white;
+            --border-style: 6px double var(--accent-color);
+            --standard-spacing: 10px;
+        }
 
-    /* Reset and base styles */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        /* Reset and base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    html, body {
-      height: 100%;
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
 
-    body {
-      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
-      background: var(--bg-color);
-      color: var(--primary-color);
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-      max-height: 100vh;
-      width: 100vw;
-      max-width: 100vw;
-      overflow: hidden;
-      font-size: 1.2rem;
-      margin: 0;
-      padding: 0;
-      position: fixed;
-    }
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+            background: var(--bg-color);
+            color: var(--primary-color);
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            max-height: 100vh;
+            width: 100vw;
+            max-width: 100vw;
+            overflow: hidden;
+            font-size: 1.2rem;
+            margin: 0;
+            padding: 0;
+            position: fixed;
+        }
 
-    /* Main menu container - two column layout for Menu 3 */
-    .menu-board {
-      display: flex;
-      flex-wrap: nowrap;
-      flex: 1;
-      gap: 15px;
-      padding: 10px;
-      background: repeating-linear-gradient(
-        45deg,
-        var(--bg-color),
-        var(--bg-color) 10px,
-        #ffeecc 10px,
-        #ffeecc 20px
-      );
-      overflow: hidden;
-      width: 100vw;
-      height: 100vh;
-      max-width: 100%;
-      max-height: 100vh;
-      box-sizing: border-box;
-    }
+        /* Main menu container - two column layout for Menu 3 */
+        .menu-board {
+            display: flex;
+            flex-wrap: nowrap;
+            flex: 1;
+            gap: 15px;
+            padding: 10px;
+            background: repeating-linear-gradient(
+                    45deg,
+                    var(--bg-color),
+                    var(--bg-color) 10px,
+                    #ffeecc 10px,
+                    #ffeecc 20px
+            );
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            max-width: 100%;
+            max-height: 100vh;
+            box-sizing: border-box;
+        }
 
-    .menu-column {
-      background: var(--card-bg);
-      border: var(--border-style);
-      border-radius: 12px;
-      padding: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      min-width: 0;
-      max-width: 50%; /* Two columns instead of three */
-      overflow: hidden;
-      word-wrap: break-word;
-      box-sizing: border-box;
-    }
+        .menu-column {
+            background: var(--card-bg);
+            border: var(--border-style);
+            border-radius: 12px;
+            padding: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-width: 0;
+            max-width: 50%; /* Two columns instead of three */
+            overflow: hidden;
+            word-wrap: break-word;
+            box-sizing: border-box;
+        }
 
-    /* Section styling with improved spacing */
-    .section {
-      margin-bottom: 6px;
-    }
+        /* Section styling with improved spacing */
+        .section {
+            margin-bottom: 6px;
+        }
 
-    .section-title {
-      font-size: 1.6rem;
-      margin-bottom: 10px;
-      color: var(--accent-color);
-      border-bottom: 2px dashed var(--accent-color);
-      padding-bottom: 5px;
-      font-weight: bold;
-      text-align: center;
-    }
+        .section-title {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            border-bottom: 2px dashed var(--accent-color);
+            padding-bottom: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
 
-    /* Menu item styling with simplified structure */
-    .menu-item {
-      margin-bottom: 8px;
-      width: 100%;
-    }
+        /* Menu item styling with simplified structure */
+        .menu-item {
+            margin-bottom: 8px;
+            width: 100%;
+        }
 
-    .menu-item-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      position: relative;
-      gap: 5px;
-    }
+        .menu-item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: relative;
+            gap: 5px;
+        }
 
-    /* Name styling with improved readability */
-    .menu-item-name {
-      font-size: 1.3rem;
-      font-weight: 600;
-      white-space: normal;
-      background: var(--card-bg);
-      padding-right: 3px;
-      z-index: 1;
-    }
+        /* Name styling with improved readability */
+        .menu-item-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            white-space: normal;
+            background: var(--card-bg);
+            padding-right: 3px;
+            z-index: 1;
+        }
 
-    /* Optimized dots styling */
-    .menu-dots {
-      flex-grow: 1;
-    }
+        /* Optimized dots styling */
+        .menu-dots {
+            flex-grow: 1;
+        }
 
-    .menu-dots:after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      border-bottom: 2px dotted #ccc;
-    }
+        .menu-dots:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            border-bottom: 2px dotted #ccc;
+        }
 
-    /* Better price styling with improved visibility */
-    .price-container {
-      display: flex;
-      gap: 15px;
-      white-space: nowrap;
-      background: var(--card-bg);
-      z-index: 1;
-      flex-shrink: 0;
-    }
+        /* Better price styling with improved visibility */
+        .price-container {
+            display: flex;
+            gap: 15px;
+            white-space: nowrap;
+            background: var(--card-bg);
+            z-index: 1;
+            flex-shrink: 0;
+        }
 
-    .price {
-      width: 70px;
-      text-align: center;
-      font-size: 1.3rem;
-      color: var(--highlight-color);
-      font-weight: bold;
-      text-shadow: 0 0 2px var(--light-accent);
-    }
+        .price {
+            width: 70px;
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--highlight-color);
+            font-weight: bold;
+            text-shadow: 0 0 2px var(--light-accent);
+        }
 
-    /* Description styling with better readability */
-    .menu-item-description {
-      font-size: 1.1rem;
-      color: #444;
-      margin: 3px 0 0 3px;
-      line-height: 1.3;
-      max-height: 2.6rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+        /* Description styling with better readability */
+        .menu-item-description {
+            font-size: 1.1rem;
+            color: #444;
+            margin: 3px 0 0 3px;
+            line-height: 1.3;
+            max-height: 2.6rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
-    /* Improved info box styling */
-    .info-box {
-      background: #fff0e0;
-      padding: 6px;
-      border: 1px dashed var(--accent-color);
-      margin: 4px 0;
-      border-radius: 4px;
-      font-size: 1.1rem;
-      line-height: 1.4;
-      text-align: center;
-    }
+        /* Improved info box styling */
+        .info-box {
+            background: #fff0e0;
+            padding: 6px;
+            border: 1px dashed var(--accent-color);
+            margin: 4px 0;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            line-height: 1.4;
+            text-align: center;
+        }
 
-    /* Double menu item row optimization */
-    .menu-item-double {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      width: 100%;
-    }
+        /* Double menu item row optimization */
+        .menu-item-double {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            width: 100%;
+        }
 
-    /* Sub-menu item styling - for options like "with cheese +$0.50" */
-    .sub-menu-item {
-      margin-left: 20px;
-      margin-top: 4px;
-      margin-bottom: 4px;
-    }
+        /* Sub-menu item styling - for options like "with cheese +$0.50" */
+        .sub-menu-item {
+            margin-left: 20px;
+            margin-top: 4px;
+            margin-bottom: 4px;
+        }
 
-    .sub-menu-item .menu-item-row {
-      opacity: 0.9;
-    }
+        .sub-menu-item .menu-item-row {
+            opacity: 0.9;
+        }
 
-    .sub-menu-item .menu-item-name {
-      font-size: 1.15rem;
-      font-weight: 500;
-      font-style: italic;
-      color: #555;
-    }
+        .sub-menu-item .menu-item-name {
+            font-size: 1.15rem;
+            font-weight: 500;
+            font-style: italic;
+            color: #555;
+        }
 
-    .sub-menu-item .price {
-      font-size: 1.15rem;
-      width: 70px; /* Match main item price width */
-      text-align: center; /* Center align to handle the + symbol */
-    }
-  </style>
+        .sub-menu-item .price {
+            font-size: 1.15rem;
+            width: 70px; /* Match main item price width */
+            text-align: center; /* Center align to handle the + symbol */
+        }
+    </style>
 </head>
 <body>
 
 <div class="menu-board">
-  <div class="menu-column">
-    <div class="section">
-      <div class="section-title">🥯 BAGELS</div>
+    <div class="menu-column">
+        <div class="section">
+            <div class="section-title">🥯 BAGELS</div>
 
-      <div class="menu-item-double">
-        <div class="menu-item" style="flex: 1;">
-          <div class="menu-item-row">
-            <span class="menu-item-name">Plain Bagel</span>
-            <span class="menu-dots"></span>
-            <div class="price-container">
-              <span class="price">$1.00</span>
+            <div class="menu-item-double">
+                <div class="menu-item" style="flex: 1;">
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Plain Bagel</span>
+                        <span class="menu-dots"></span>
+                        <div class="price-container">
+                            <span class="price">$1.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item" style="flex: 1;">
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Bakers Dozen</span>
+                        <span class="menu-dots"></span>
+                        <div class="price-container">
+                            <span class="price">$12.00</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="menu-item" style="flex: 1;">
-          <div class="menu-item-row">
-            <span class="menu-item-name">Bakers Dozen</span>
-            <span class="menu-dots"></span>
-            <div class="price-container">
-              <span class="price">$12.00</span>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Plain Bagel Stick</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$1.25</span>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="menu-item">
-        <div class="menu-item-row">
-          <span class="menu-item-name">Plain Bagel Stick</span>
-          <span class="menu-dots"></span>
-          <div class="price-container">
-            <span class="price">$1.25</span>
-          </div>
-        </div>
-      </div>
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">w/ Butter</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$2.69</span>
+                    </div>
+                </div>
+            </div>
 
-      <div class="menu-item">
-        <div class="menu-item-row">
-          <span class="menu-item-name">w/ Butter</span>
-          <span class="menu-dots"></span>
-          <div class="price-container">
-            <span class="price">$2.69</span>
-          </div>
-        </div>
-      </div>
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">w/ Cream Cheese</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$2.99</span>
+                    </div>
+                </div>
+            </div>
 
-      <div class="menu-item">
-        <div class="menu-item-row">
-          <span class="menu-item-name">w/ Cream Cheese</span>
-          <span class="menu-dots"></span>
-          <div class="price-container">
-            <span class="price">$2.99</span>
-          </div>
-        </div>
-      </div>
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">w/ Homemade Cream Cheese</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$3.99</span>
+                    </div>
+                </div>
+            </div>
 
-      <div class="menu-item">
-        <div class="menu-item-row">
-          <span class="menu-item-name">w/ Homemade Cream Cheese</span>
-          <span class="menu-dots"></span>
-          <div class="price-container">
-            <span class="price">$3.99</span>
-          </div>
-        </div>
-      </div>
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">w/ Peanut Butter</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$2.75</span>
+                    </div>
+                </div>
+            </div>
 
-      <div class="menu-item">
-        <div class="menu-item-row">
-          <span class="menu-item-name">w/ Peanut Butter</span>
-          <span class="menu-dots"></span>
-          <div class="price-container">
-            <span class="price">$2.75</span>
-          </div>
+            <div class="info-box">
+                Cream Cheese Flavors: Olive • Scallion • Veggie
+            </div>
         </div>
-      </div>
 
-      <div class="info-box">
-        Cream Cheese Flavors: Olive • Scallion • Veggie
-      </div>
+        <div class="section">
+            <div class="section-title">🥪 EGG SANDWICHES</div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">One Egg</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$3.50</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Egg, Meat</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$4.79</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Egg, Meat & Cheese</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$5.69</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🧀 EXTRAS</div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">🥚 Extra Egg</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$0.75</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">🥓 Extra Meat</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$2.00</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">Bacon • Ham • Sausage • Taylor Ham</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">🧀 Extra Cheese</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$0.75</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">American • Swiss • Cheddar • Provolone • Pepper Jack</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">On A Long Roll</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">+$2.50</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">➕ ADD-ONS</div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">🥔 Add a Hashbrown</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$1.75</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="section">
-      <div class="section-title">🥪 EGG SANDWICHES</div>
+    <div class="menu-column">
+        <div class="section">
+            <div class="section-title">🍳 PLATTERS & OMELETS</div>
 
-      <div class="menu-item">
-        <div class="menu-item-row">
-          <span class="menu-item-name">One Egg</span>
-          <span class="menu-dots"></span>
-          <div class="price-container">
-            <span class="price">$3.50</span>
-          </div>
-        </div>
-      </div>
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">2 Eggs any style + Choice of Meat</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$8.99</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">with toast & homefries</div>
+            </div>
 
-      <div class="menu-item">
-        <div class="menu-item-row">
-          <span class="menu-item-name">Egg, Meat</span>
-          <span class="menu-dots"></span>
-          <div class="price-container">
-            <span class="price">$4.79</span>
-          </div>
-        </div>
-      </div>
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Cheese Omelette</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$8.99</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">with toast & homefries</div>
+            </div>
 
-      <div class="menu-item">
-        <div class="menu-item-row">
-          <span class="menu-item-name">Egg, Meat & Cheese</span>
-          <span class="menu-dots"></span>
-          <div class="price-container">
-            <span class="price">$5.69</span>
-          </div>
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Western Omelet</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$8.99</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">Eggs, Ham, Peppers, Onions & Cheese</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">French Toast + Choice of Meat</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$8.99</span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+
+        <div class="section">
+            <div class="section-title">🌯 BREAKFAST WRAPS</div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">#1 Breakfast Burrito</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$6.99</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">Eggs, Salsa, Pepper Jack Cheese</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">#2 Western Wrap</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$6.99</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">Eggs, Ham, Peppers, Onions, Cheese</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">#3 Veggie Wrap</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$6.99</span>
+                    </div>
+                </div>
+                <div class="menu-item-description">Eggs, Peppers, Onions, Cheese</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Steak, Egg & Cheese</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$6.99</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">☕ COFFEE & TEA</div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Small (12oz)</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$1.75</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Medium (16oz)</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$2.25</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Large (20oz)</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$2.50</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-row">
+                    <span class="menu-item-name">Extra Large (24oz)</span>
+                    <span class="menu-dots"></span>
+                    <div class="price-container">
+                        <span class="price">$2.99</span>
+                    </div>
+                </div>
+            </div>
+            <div class="info-box">
+                Self-serve coffee and tea available in various flavors
+            </div>
+        </div>
     </div>
-
-    <div class="section">
-      <div class="section-title">🧀 EXTRAS</div>
-
-      <div class="menu-item">
-        <div class="menu-item-row">
-          <span class="menu-item-name">🥚 Extra Egg</span>
-          <span class="menu-dots"></span>
-          <div class="price-container">
-            <span class="price">$0.75</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-item-row">
-          <span class="menu-item-name">🥓 Extra Meat</span>
-          <span class="menu-dots"></span>
-          <div class="price-container">
-            <span class="price">$2.00</span>
-          </div>
-        </div>
-        <div class="menu-item-description">Bacon • Ham • Sausage • Taylor Ham</div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-item-row">
-          <span class="menu-item-name">🧀 Extra Cheese</span>
-          <span class="menu-dots"></span>
-          <div class="price-container">
-            <span class="price">$0.75</span>
-          </div>
-        </div>
-        <div class="menu-item-description">American • Swiss • Cheddar • Provolone • Pepper Jack</div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-item-row">
-          <span class="menu-item-name">On A Long Roll</span>
-          <span class="menu-dots"></span>
-          <div class="price-container">
-            <span class="price">+$2.50</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="section-title">➕ ADD-ONS</div>
-
-      <div class="menu-item">
-        <div class="menu-item-row">
-          <span class="menu-item-name">🥔 Add a Hashbrown</span>
-          <span class="menu-dots"></span>
-          <div class="price-container">
-            <span class="price">$1.75</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="menu-column">
-    <div class="section">
-      <div class="section-title">🍳 PLATTERS & OMELETS</div>
-
-      <div class="menu-item">
-        <div class="menu-item-row">
-          <span class="menu-item-name">2 Eggs any style + Choice of Meat</span>
-          <span class="menu-dots"></span>
-          <div class="price-container">
-            <span class="price">$8.99</span>
-          </div>
-        </div>
-        <div class="menu-item-description">with toast & homefries</div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-item-row">
-          <span class="menu-item-name">Cheese Omelette</span>
-          <span class="menu-dots"></span>
-          <div class="price-container">
-            <span class="price">$8.99</span>
-          </div>
-        </div>
-        <div class="menu-item-description">with toast & homefries</div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-item-row">
-          <span class="menu-item-name">Western Omelet</span>
-          <span class="menu-dots"></span>
-          <div class="price-container">
-            <span class="price">$8.99</span>
-          </div>
-        </div>
-        <div class="menu-item-description">Eggs, Ham, Peppers, Onions & Cheese</div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-item-row">
-          <span class="menu-item-name">French Toast + Choice of Meat</span>
-          <span class="menu-dots"></span>
-          <div class="price-container">
-            <span class="price">$8.99</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="section-title">🌯 BREAKFAST WRAPS</div>
-
-      <div class="menu-item">
-        <div class="menu-item-row">
-          <span class="menu-item-name">#1 Breakfast Burrito</span>
-          <span class="menu-dots"></span>
-          <div class="price-container">
-            <span class="price">$6.99</span>
-          </div>
-        </div>
-        <div class="menu-item-description">Eggs, Salsa, Pepper Jack Cheese</div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-item-row">
-          <span class="menu-item-name">#2 Western Wrap</span>
-          <span class="menu-dots"></span>
-          <div class="price-container">
-            <span class="price">$6.99</span>
-          </div>
-        </div>
-        <div class="menu-item-description">Eggs, Ham, Peppers, Onions, Cheese</div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-item-row">
-          <span class="menu-item-name">#3 Veggie Wrap</span>
-          <span class="menu-dots"></span>
-          <div class="price-container">
-            <span class="price">$6.99</span>
-          </div>
-        </div>
-        <div class="menu-item-description">Eggs, Peppers, Onions, Cheese</div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-item-row">
-          <span class="menu-item-name">Steak, Egg & Cheese</span>
-          <span class="menu-dots"></span>
-          <div class="price-container">
-            <span class="price">$6.99</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="section-title">☕ COFFEE & TEA</div>
-
-      <div class="menu-item">
-        <div class="menu-item-row">
-          <span class="menu-item-name">Small (12oz)</span>
-          <span class="menu-dots"></span>
-          <div class="price-container">
-            <span class="price">$1.75</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-item-row">
-          <span class="menu-item-name">Medium (16oz)</span>
-          <span class="menu-dots"></span>
-          <div class="price-container">
-            <span class="price">$2.25</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-item-row">
-          <span class="menu-item-name">Large (20oz)</span>
-          <span class="menu-dots"></span>
-          <div class="price-container">
-            <span class="price">$2.50</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="info-box">
-        Self-serve coffee and tea available in various flavors
-      </div>
-    </div>
-  </div>
 </div>
 </body>
 </html>
